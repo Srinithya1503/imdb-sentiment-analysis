@@ -2,7 +2,6 @@
 
 A beginner-friendly machine learning project that classifies IMDb movie reviews as **positive** or **negative** using Natural Language Processing (NLP) and supervised learning models.
 
-**Live Demo:** [Streamlit Dashboard](#optional-run-the-streamlit-dashboard)  
 **Dataset:** [50K IMDb Reviews on Kaggle](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews)
 
 ---
