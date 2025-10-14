@@ -103,12 +103,14 @@ imdb_sentiment_analysis/
 ├── README.md                          # This file
 ├── requirements.txt                   # Python dependencies
 ├── .gitignore                         # Git ignore patterns
-├── sentiment_analysis.py              # Main end-to-end pipeline
+├── sentiment_analysis_main.py         # Main end-to-end pipeline
 ├── app.py                             # Streamlit dashboard
+├── files_summary.md                   # files guide
+├── setup_guide                        # project setup guide 
 │
 ├── data/
 │   ├── raw/
-│   │   └── imdb_dataset.csv           # Original dataset (download from Kaggle)
+│   │   └── IMDB Dataset.csv           # Original dataset (download from Kaggle)
 │   ├── processed/
 │   │   └── cleaned_reviews.csv        # Preprocessed data
 │   └── README.md                      # Data documentation
@@ -127,16 +129,18 @@ imdb_sentiment_analysis/
 │   ├── README.md                      # Model loading guide
 │   ├── logistic_regression.pkl        # Trained model
 │   ├── naive_bayes.pkl                # Trained model
-│   ├── svm_model.pkl                  # Trained model
+│   ├── svm.pkl                        # Trained model
 │   └── tfidf_vectorizer.pkl           # Feature vectorizer
 │
 └── outputs/
     ├── visualizations/
-    │   ├── word_cloud_positive.png
-    │   ├── word_cloud_negative.png
+    │   ├── word_clouds.png
     │   ├── sentiment_distribution.png
-    │   └── confusion_matrix.png
+    │   ├── review_length_distribution.png
+    │   └── frequent_words.png
+
     └── results/
+    │   ├── pipeline_summary.txt
         └── model_performance.csv
 ```
 
@@ -337,19 +341,17 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👤 Author
 
-**Your Name** — Data Science Enthusiast | Machine Learning Practitioner
+**Sri Nithya S** — Data Science Enthusiast | Machine Learning Practitioner
 
-- 🔗 [LinkedIn](https://linkedin.com/in/yourprofile)
-- 🐙 [GitHub](https://github.com/yourusername)
-- 📧 [Email](mailto:your.email@example.com)
-
+- 🔗 [LinkedIn](https://linkedin.com/in/srinithya-s)
+- 🐙 [GitHub](https://github.com/Srinithya1503)
+- 📧 [Email](venkatsri1503@gmail.com)
 ---
 
 ## ⭐ Acknowledgments
 
 - Dataset: [Kaggle - IMDb Movie Reviews](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews)
 - Inspired by real-world NLP applications in entertainment industry
-- Built with ❤️ for the open-source community
 
 ---
 
@@ -371,10 +373,10 @@ A: Try hyperparameter tuning, use BERT/transformers, or collect more data.
 
 ## 📞 Support
 
-Need help? Open an issue on [GitHub Issues](https://github.com/yourusername/imdb_sentiment_analysis/issues)
+Need help? Open an issue on [GitHub Issues](https://github.com/Srinithya1503/imdb_sentiment_analysis/issues)
 
 ---
 
-**Last Updated:** October 2024  
+**Last Updated:** October 2025
 **Version:** 1.0  
 **Status:** ✅ Active & Maintained
