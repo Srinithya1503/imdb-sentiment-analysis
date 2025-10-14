@@ -342,7 +342,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Sri Nithya S** — Data Science Enthusiast | Machine Learning Practitioner
 
-- 🔗 [LinkedIn](https://linkedin.com/in/srinithya-s)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/sri-nithya-s-0b47681a4/)
 - 🐙 [GitHub](https://github.com/Srinithya1503)
 - 📧 [Email](venkatsri1503@gmail.com)
 ---
