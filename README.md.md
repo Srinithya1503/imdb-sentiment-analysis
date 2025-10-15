@@ -9,11 +9,11 @@ A beginner-friendly machine learning project that classifies IMDb movie reviews 
 ## 🧠 Project Overview
 
 This project teaches you how to:
-- ✅ Clean and preprocess text data
-- ✅ Build and compare machine learning classifiers
-- ✅ Evaluate models using multiple metrics
-- ✅ Extract actionable insights from unstructured text
-- ✅ Deploy models for real-world predictions
+- ✅ Clean and **preprocess** text data
+- ✅ Build and compare **machine learning classifiers**
+- ✅ Evaluate models using **multiple metrics**
+- ✅ Extract **actionable insights** from unstructured text
+- ✅ **Develop deploy-ready models** for real-world predictions
 
 **Perfect for:** Data science beginners, students, NLP enthusiasts, portfolio building
 
