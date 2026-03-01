@@ -329,13 +329,6 @@ Contributions are welcome! To contribute:
 3. Commit changes (`git commit -am 'Add improvement'`)
 4. Push to branch (`git push origin feature/improvement`)
 5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ---
 
 ## 👤 Author
@@ -352,21 +345,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Dataset: [Kaggle - IMDb Movie Reviews](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews)
 - Inspired by real-world NLP applications in entertainment industry
 
----
-
-## 🙋 FAQ
-
-**Q: Do I need a GPU?**  
-A: No, this project runs on CPU. GPU is optional for advanced models (BERT, LSTM).
-
-**Q: How long does training take?**  
-A: ~5-10 minutes on a standard laptop.
-
-**Q: Can I use this on other datasets?**  
-A: Yes! The pipeline is general and works with any review dataset.
-
-**Q: How do I improve model accuracy?**  
-A: Try hyperparameter tuning, use BERT/transformers, or collect more data.
 
 ---
 
