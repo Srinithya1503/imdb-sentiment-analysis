@@ -10,10 +10,6 @@ A beginner-friendly end-to-end machine learning pipeline that:
 4. Trains 3 ML models (Logistic Regression, Naïve Bayes, SVM)
 5. Evaluates and compares models
 6. Saves trained models for production use
-
-Author: Your Name
-Date: October 2024
-Python: 3.8+
 """
 
 import os
@@ -31,10 +27,6 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 warnings.filterwarnings('ignore')
 
-# ============================================================================
-# IMPORT CUSTOM MODULES
-# ============================================================================
-# Note: Make sure src/ folder exists with preprocessing.py, eda.py, etc.
 try:
     from src.preprocessing import preprocess_text, clean_dataset
     from src.eda import generate_visualizations, analyze_sentiment_distribution
@@ -50,8 +42,8 @@ except ImportError as e:
 # ============================================================================
 
 # File paths
-RAW_DATA_PATH = "C:/Users/srinithya/Desktop/NITHYA/Data Analysis Project/Machine-Learning/sentiment-analysis/github/imdb_sentiment_analysis/data/raw/IMDB Dataset.csv"
-PROCESSED_DATA_PATH = "C:/Users/srinithya/Desktop/NITHYA/Data Analysis Project/Machine-Learning/sentiment-analysis/github/imdb_sentiment_analysis/data/processed/cleaned_reviews.csv"
+RAW_DATA_PATH = "data/raw/IMDB Dataset.csv"
+PROCESSED_DATA_PATH = "data/processed/cleaned_reviews.csv"
 MODELS_DIR = "models/"
 OUTPUTS_DIR = "outputs/"
 VISUALIZATIONS_DIR = os.path.join(OUTPUTS_DIR, 'visualizations/')
@@ -70,7 +62,7 @@ SAMPLE_SIZE = None  # Set to integer to use smaller dataset (e.g., 5000)
 def print_welcome():
     """Display welcome banner"""
     print("\n" + "="*80)
-    print("🎬  IMDb MOVIE REVIEWS SENTIMENT ANALYSIS  🎬")
+    print(" IMDb MOVIE REVIEWS SENTIMENT ANALYSIS  🎬")
     print("="*80)
     print("\nThis script will:")
     print("  1. Load IMDb dataset (50K reviews)")
@@ -120,10 +112,10 @@ def load_data():
     
     except FileNotFoundError:
         print_error(f"Dataset not found at: {RAW_DATA_PATH}")
-        print("\n  📥 To download the dataset:")
-        print("     1. Visit: https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews")
-        print("     2. Download imdb_dataset.csv")
-        print(f"     3. Place it in: data/raw/")
+        print("\n  To download the dataset:")
+        print(" 1. Visit: https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews")
+        print(" 2. Download imdb_dataset.csv")
+        print(f"3. Place it in: data/raw/")
         sys.exit(1)
     
     except pd.errors.ParserError:
@@ -134,7 +126,7 @@ df = load_data()
 
 # Use sample if specified (for testing)
 if SAMPLE_SIZE and len(df) > SAMPLE_SIZE:
-    print(f"\n  ⚠️  Using sample of {SAMPLE_SIZE} reviews for testing")
+    print(f"\n Using sample of {SAMPLE_SIZE} reviews for testing")
     df = df.sample(n=SAMPLE_SIZE, random_state=RANDOM_STATE)
 
 # ============================================================================
@@ -171,7 +163,7 @@ def perform_eda(data):
     print_section("Step 4: Exploratory Data Analysis (EDA)")
     
     # Sentiment distribution
-    print("\n  📊 Sentiment Distribution:")
+    print("\n Sentiment Distribution:")
     sentiment_counts = data['sentiment'].value_counts()
     for sentiment, count in sentiment_counts.items():
         percentage = (count / len(data)) * 100
@@ -184,7 +176,7 @@ def perform_eda(data):
         print("  ⚠️  Dataset may be imbalanced")
     
     # Text statistics
-    print("\n  📈 Text Statistics:")
+    print("\n Text Statistics:")
     data['review_length'] = data['review'].apply(lambda x: len(str(x).split()))
     print(f"     • Avg review length: {data['review_length'].mean():.0f} words")
     print(f"     • Min length: {data['review_length'].min()} words")
@@ -214,7 +206,7 @@ def create_visualizations(data):
             print(f"     ✓ {file}")
     
     except Exception as e:
-        print(f"  ⚠️  Warning: Could not generate visualizations: {e}")
+        print(f"  Warning: Could not generate visualizations: {e}")
 
 create_visualizations(df)
 
@@ -348,21 +340,21 @@ def train_sentiment_models(X_train, y_train):
     models = {}
     
     # Model 1: Logistic Regression
-    print("\n  1️⃣  Training Logistic Regression...")
+    print("\n Training Logistic Regression...")
     lr_model = LogisticRegression(max_iter=1000, random_state=RANDOM_STATE, n_jobs=-1)
     lr_model.fit(X_train, y_train)
     models['Logistic Regression'] = lr_model
     print("     ✓ Complete")
     
     # Model 2: Naïve Bayes
-    print("  2️⃣  Training Multinomial Naïve Bayes...")
+    print(" Training Multinomial Naïve Bayes...")
     nb_model = MultinomialNB()
     nb_model.fit(X_train, y_train)
     models['Naïve Bayes'] = nb_model
     print("     ✓ Complete")
     
     # Model 3: SVM
-    print("  3️⃣  Training Linear SVM...")
+    print(" Training Linear SVM...")
     svm_model = LinearSVC(max_iter=2000, random_state=RANDOM_STATE)
     svm_model.fit(X_train, y_train)
     models['SVM'] = svm_model
@@ -385,7 +377,7 @@ def evaluate_sentiment_models(models, X_test, y_test):
     
     results = []
     
-    print("\n  📊 Model Performance Metrics:\n")
+    print("\n Model Performance Metrics:\n")
     
     for model_name, model in models.items():
         # Make predictions
@@ -420,7 +412,7 @@ def evaluate_sentiment_models(models, X_test, y_test):
     best_model_name = results_df.loc[best_model_idx, 'Model']
     best_accuracy = results_df.loc[best_model_idx, 'Accuracy']
     
-    print(f"  🏆 Best Model: {best_model_name} ({best_accuracy*100:.2f}% accuracy)\n")
+    print(f" Best Model: {best_model_name} ({best_accuracy*100:.2f}% accuracy)\n")
     
     # Save results
     results_df.to_csv(os.path.join(RESULTS_DIR, 'model_performance.csv'), index=False)
@@ -505,47 +497,24 @@ summary = f"""
 ║                        PROJECT SUMMARY                                    ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
-📊 DATA:
+ DATA:
    • Raw dataset: {len(df):,} reviews
    • Training set: {len(X_train):,} reviews (80%)
    • Test set: {len(X_test):,} reviews (20%)
 
-🤖 MODELS TRAINED:
+ MODELS TRAINED:
    • Logistic Regression  → {results_df[results_df['Model']=='Logistic Regression']['Accuracy'].values[0]*100:.2f}% accuracy
    • Naïve Bayes          → {results_df[results_df['Model']=='Naïve Bayes']['Accuracy'].values[0]*100:.2f}% accuracy
    • SVM                  → {results_df[results_df['Model']=='SVM']['Accuracy'].values[0]*100:.2f}% accuracy
 
-🏆 BEST MODEL: {best_model}
+ BEST MODEL: {best_model}
    ({results_df[results_df['Model']==best_model]['Accuracy'].values[0]*100:.2f}% accuracy)
 
-💾 SAVED ARTIFACTS:
+ SAVED ARTIFACTS:
    Models:       {MODELS_DIR}
    Results:      {RESULTS_DIR}model_performance.csv
    Visualizations: {VISUALIZATIONS_DIR}
 
-🚀 NEXT STEPS:
-   1. View results: cat outputs/results/model_performance.csv
-   2. Run dashboard: streamlit run app.py
-   3. Explore notebook: jupyter notebook notebooks/sentiment_analysis.ipynb
-   4. Make predictions: python -c "import sentiment_analysis"
-
-📚 PRODUCTION USAGE:
-   import pickle
-   from src.preprocessing import preprocess_text
-
-   # Load model and vectorizer
-   vectorizer = pickle.load(open('models/tfidf_vectorizer.pkl', 'rb'))
-   model = pickle.load(open('models/logistic_regression.pkl', 'rb'))
-
-   # Predict
-   review = "Your movie review here"
-   cleaned = preprocess_text(review)
-   prediction = model.predict(vectorizer.transform([cleaned]))[0]
-
-╔════════════════════════════════════════════════════════════════════════════╗
-║  Thank you for using IMDb Sentiment Analysis! 🎬                          ║
-║  Questions? Check README.md or visit: https://github.com/Srinithya1503    ║
-╚════════════════════════════════════════════════════════════════════════════╝
 """
 summary_path = os.path.join(RESULTS_DIR, 'pipeline_summary.txt')
 
